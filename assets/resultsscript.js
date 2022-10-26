@@ -11,11 +11,14 @@ reveal.addEventListener("click", function(){
 var title = document.getElementById("title1");
 var type = document.getElementById("type");
 var sprite = document.getElementById("img");
+//var finalCharacter = localStorage.getItem("result")
+
 
 
 const getPokemon = () => {
-    const url = 'https://pokeapi.co/api/v2/pokemon/1';
-    fetch(url)
+    var finalCharacter = 607
+    var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
+    fetch(pokeUrl)
         .then( res => {
             return res.json();
         })
@@ -23,8 +26,11 @@ const getPokemon = () => {
         title.textContent = data.name;
         type.textContent = "#" + data.id;
         document.getElementById("img").src = data.sprites['front_default'];
-        console.log()
+        localStorage.setItem('character', data.name);
     })    
 };
 
 getPokemon();
+var previous = localStorage.getItem("character");
+var first = document.getElementById("1")
+first.textContent = "1. " + previous;
