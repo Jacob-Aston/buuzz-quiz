@@ -47,17 +47,46 @@ function startQuiz(question) {
 }
 startQuiz();
 
+question[nextQuestionIndex]
+
 function selectAnswer()
 
 const questions = [{
 question: "When you're bored at night do you?",
 answers: [
-  {text:"Watch a movie"},
-  {text:"Read a book"},
-  {text:"Grab the Gameboy"},
+  {text:"Watch a movie",
+  nextQuestion: 1 },
+  {text:"Read a book",
+  nextQuestion: 2 },
+  {text:"Grab the Gameboy"
+  },
   {text:"Play sudoku"}
 ]
 },
+{
+  question: "You want to talk to your best friend. Do you reach for your;",
+  answers: [
+    {text:"phone",
+    nextQuestion: },
+    {text:"telegraph",
+    nextQuestion: },
+    {text:"Email"
+    },
+    {text:"Instagram"}
+  ]
+  },
+  {
+    question: "Who was the president when you were young?",
+    answers: [
+      {text:"Nixon",
+      nextQuestion: },
+      {text:"Ronald Reagan",
+      nextQuestion: },
+      {text:"Bill Clinton"
+      },
+      {text:"Donald Trump"}
+    ]
+    },
 ]
 
 
