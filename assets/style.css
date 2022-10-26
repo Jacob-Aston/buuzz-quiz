@@ -1,7 +1,32 @@
-h1 {
-    color:blueviolet;
+@font-face {
+    font-family: pokemon;
+    src: url(/pokemonHollow.ttf)
 }
 
-body {
-    background-color: aqua;
+h1 {
+    color: #ffcc03;
+    font-family: pokemon;
+    font-size: 60px;
+    padding-top: 1rem;
+}
+
+/* body {
+    background: url(/images/star-wars-ship2.jpg)
+} */
+
+p {
+    color: white;
+    font-size: 24px;
+}
+
+#start {
+     font-size: 24px;
+     font-weight: bold;
+     background-color: blue;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px -2px rgb(183, 236, 237);
+    transform: scale(1.1);
 }
