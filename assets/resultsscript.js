@@ -16,7 +16,7 @@ var sprite = document.getElementById("img");
 
 
 const getPokemon = () => {
-    var finalCharacter = 6
+    var finalCharacter = 607
     var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
     fetch(pokeUrl)
         .then( res => {
@@ -34,7 +34,7 @@ const getPokemon = () => {
     })    
 };
 
-//getPokemon();
+getPokemon();
 //var previous = JSON.parse(localStorage.getItem("character"));
 //console.log(previous);
 //var first = document.getElementById("1")
@@ -59,4 +59,4 @@ const getStarWars = () => {
     })    
 };
 
-getStarWars();
+//getStarWars();

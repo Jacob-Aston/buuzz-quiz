@@ -7,43 +7,43 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <body>
-    <header>
-        <h1 class="is-size-1">Based on our foolproof quiz, you are.....</h1>
+    <section class="hero is-medium is-link has-text-centered">
+      <div class="hero-body">
+        <p class="title">
+          Based on our foolproof quiz, you are .....
+        </p>
         <button class="button is-large" id="btn">Reveal Results</button>
-    </header>
-    <div class="card" id="result" style="display:none">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-96x96">
-                <img id="img" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4" id="title1"></p>
-              <p class="subtitle is-6" id="type"></p>
-            </div>
-          </div>
-      
-          <div class="content">
-            You are an amazing person who is incredibly interesting and has a lot to offer!</a>
-            <a href="#">link to page about pokemon?</a>
-            <br>
-          </div>
+      </div>
+    </section>
+    <div class="container is-fluid" id="result" style="display:none">
+      <div class="notification is-primary">
+        <div class="media-content">
+          <p class="title is-4" id="title1"></p>
+          <p class="subtitle is-6" id="type"></p>
+        </div>
+        <figure class="image is-96x96">
+          <img id="img" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+        <div class="content">
+          You are an amazing person who is incredibly interesting and has a lot to offer!</a>
+          <a href="#">link to page about pokemon?</a>
+          <br>
         </div>
       </div>
-      <div>
-        <ol id="highScores"> Previous Results
-            <li id="1">1. </li>
-            <li id="2">2. </li>
-            <li id="3">3. </li>
-            <li id="4">4. </li>
-        </ol>
-      </div>
+    </div>
+  
+    <div>
+      <ol id="highScores"> Previous Results
+          <li id="1">1. </li>
+          <li id="2">2. </li>
+          <li id="3">3. </li>
+          <li id="4">4. </li>
+      </ol>
+    </div>
 
-      <div>
+    <div>
         <a href="index.html">Take Quiz Again</a>
-      </div>
+    </div>
   <script src="./assets/resultsscript.js"></script>
   </body>
 </html>
