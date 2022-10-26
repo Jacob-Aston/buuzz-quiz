@@ -27,3 +27,17 @@ function getApi(starUrl) {
 }
 getApi(starUrl);
 
+const questions = [{
+question: "When you're bored at night do you?",
+answers: [
+  {text:"Watch a movie"},
+  {text:"Read a book"},
+  {text:"Grab the Gameboy"},
+  {text:"Play sudoku"}
+]
+},
+]
+
+
+
+
