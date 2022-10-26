@@ -1,9 +1,12 @@
 var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
 var starUrl = 'https://swapi.dev/api/'
+<<<<<<< HEAD
+=======
 var answerButtons = document.getElementById('answer-buttons')
 var questionText = document.getElementById('question')
 
+>>>>>>> 42439c5546a51c306fa974a47632637b64a07d69
 var responseText = document.getElementById('response-text');
 
 var currentQuestion;
