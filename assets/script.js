@@ -1,7 +1,6 @@
 var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
 var starUrl = 'https://swapi.dev/api/'
-
 var responseText = document.getElementById('response-text');
 
 function getApi(pokeUrl) {
