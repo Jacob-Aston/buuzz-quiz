@@ -6,6 +6,7 @@ var questionText = document.getElementById('question')
 
 var currentQuestion = 0;
 
+//console logs data from pokeapi
 function getApi(pokeUrl) {
   fetch(pokeUrl)
     .then(function (response) {
@@ -18,6 +19,7 @@ function getApi(pokeUrl) {
 }
 getApi(pokeUrl);
 
+//console logs data from star wars api
 function getApi(starUrl) {
   fetch(starUrl)
     .then(function (response) {
@@ -30,14 +32,18 @@ function getApi(starUrl) {
 }
 getApi(starUrl);
 
+//when answer is clicked the result property of answer object is passed in
+//clears question and displays next question
 function selectAnswer(result) {
   console.log("I was selected")
   console.log(result)
   currentQuestion = currentQuestion + 1;
+
   answerButtons.innerHTML = '';
   displayQuestion(questions[currentQuestion]);
 }
 
+//displays question and builds answer buttons from questions array
 function displayQuestion(question) {
   console.log(question)
   questionText.textContent = question.question
@@ -45,6 +51,7 @@ function displayQuestion(question) {
   var progressElement = document.getElementById('progress')
   progressElement.innerHTML = currentQuestion + 1;
 
+  //builds answer buttons from questions array
   question.answers.forEach(answer => {
     var list = document.createElement("li")
     var button = document.createElement("button")
@@ -62,13 +69,13 @@ function displayQuestion(question) {
   })
 }
 
+//starts quis on the first question
 function startQuiz() {
   displayQuestion(questions[0])
 }
-// question[nextQuestionIndex]
 
 
-
+//array of objects each containing a question and an array of answers
 let questions = [{
     question: "When you're bored at night do you?",
     answers: [
