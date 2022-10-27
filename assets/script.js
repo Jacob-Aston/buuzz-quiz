@@ -116,17 +116,42 @@ let questions = [{
   },
 ]
 
+const SCORE_POKE = 1;
+const SCORE_DISNEY = 1;
+const MAX_QUESTIONS = 10;
+
+startQuiz = () => {
+  score = 0;
+}
+
 answers.forEach(choice => {
   choice.addEventListener('click', e => {
+
     
-  })
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset[answers]
+
+    let classToApply = selectedAnswer == currentQuestion ? 'pokemon' : 'disney';
+
+    if(classToApply === 'pokemon') {
+      incrementScore(SCORE_POKE);
+    } else {
+      incrementScore(SCORE_DISNEY);
+    }
+
+    selected
+
+
+  })cd 
+
+
+incrementScore = num => {
+  score += num;
+}
 
 
 
-
-
-
-startQuiz(questions[0]);
+startQuiz();
 
 
 
