@@ -4,7 +4,7 @@ var starUrl = 'https://swapi.dev/api/'
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
 
-var currentQuestion;
+var currentQuestion = 0;
 
 function getApi(pokeUrl) {
   fetch(pokeUrl)
@@ -33,24 +33,38 @@ getApi(starUrl);
 function selectAnswer(result) {
   console.log("I was selected")
   console.log(result)
+  currentQuestion = currentQuestion + 1;
+  answerButtons.innerHTML = '';
+  displayQuestion(questions[currentQuestion]);
 }
 
-function startQuiz(question) {
+function displayQuestion(question) {
   console.log(question)
-  currentQuestion = 0
   questionText.textContent = question.question
+
+  var progressElement = document.getElementById('progress')
+  progressElement.innerHTML = currentQuestion + 1;
+
   question.answers.forEach(answer => {
     var list = document.createElement("li")
     var button = document.createElement("button")
+
     button.innerText = answer.text
     button.classList.add("btn")
     button.addEventListener('click', (event) => selectAnswer(answer.result))
+
     list.appendChild(button);
+    console.log(answerButtons)
     answerButtons.appendChild(list);
+    console.log(answerButtons)
+
     console.log("response");
   })
 }
 
+function startQuiz() {
+  displayQuestion(questions[0])
+}
 // question[nextQuestionIndex]
 
 
@@ -102,7 +116,7 @@ let questions = [{
   },
 ]
 
-startQuiz(questions[0]);
+startQuiz();
 
 
 
