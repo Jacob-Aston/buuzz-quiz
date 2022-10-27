@@ -35,17 +35,17 @@ const getPokemon = () => {
     })    
 };
 
-getPokemon();
+//getPokemon();
 
 //var previous = JSON.parse(localStorage.getItem("character"));
 //console.log(previous);
 //var first = document.getElementById("1")
 //first.textContent = "1. " + previous;
 
-const getStarWars = () => {
+const getDisney = () => {
     //var finalCharacter = 2
-    var starUrl = `https://api.disneyapi.dev/characters/308`;
-    fetch(starUrl)
+    var disneyUrl = `https://api.disneyapi.dev/characters/308`;
+    fetch(disneyUrl)
         .then( res => {
             return res.json();
         })
@@ -54,6 +54,7 @@ const getStarWars = () => {
         console.log(data.name);
         type.textContent = data.films;
         document.getElementById("img").src = data.imageUrl;
+        document.getElementById("info").href = `https://disney.fandom.com/wiki/${data.name}`;
         //var namesArr = ["litwick", "squirtle"];
         //namesArr.push(data.name);
         //localStorage.setItem('character', JSON.stringify(namesArr));
@@ -62,4 +63,4 @@ const getStarWars = () => {
     })    
 };
 
-//getStarWars();
+getDisney();
