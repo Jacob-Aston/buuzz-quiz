@@ -16,7 +16,7 @@ var sprite = document.getElementById("img");
 
 
 const getPokemon = () => {
-    var finalCharacter = 607
+    var finalCharacter = 68
     var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
     fetch(pokeUrl)
         .then( res => {
@@ -30,11 +30,12 @@ const getPokemon = () => {
         namesArr.push(data.name);
         localStorage.setItem('character', JSON.stringify(namesArr));
         console.log(namesArr);
+        document.getElementById("info").href = `https://bulbapedia.bulbagarden.net/wiki/${data.name}_(Pok%C3%A9mon)`;
         //localStorage.setItem('character', data.name);
     })    
 };
 
-//getPokemon();
+getPokemon();
 
 //var previous = JSON.parse(localStorage.getItem("character"));
 //console.log(previous);
@@ -61,4 +62,4 @@ const getStarWars = () => {
     })    
 };
 
-getStarWars();
+//getStarWars();
