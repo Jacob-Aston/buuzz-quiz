@@ -30,3 +30,15 @@ button:hover {
     box-shadow: 3px 3px 3px -2px rgb(183, 236, 237);
     transform: scale(1.1);
 }
+
+#progressBar {
+    width: 10rem;
+    height: 1rem;
+    border: 0.15rem solid darkblue;
+}
+
+#progressBarStatus {
+    height: 1.1rem;
+    background-color: darkblue;
+    width: 0%; 
+}

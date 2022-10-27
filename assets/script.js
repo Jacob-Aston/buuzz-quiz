@@ -4,7 +4,8 @@ var starUrl = 'https://swapi.dev/api/'
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
 
-var currentQuestion = 0;
+var currentQuestion = 1;
+var maxQuestions = 10;
 
 //console logs data from pokeapi
 function getApi(pokeUrl) {
@@ -38,18 +39,22 @@ function selectAnswer(result) {
   console.log("I was selected")
   console.log(result)
   currentQuestion = currentQuestion + 1;
-
   answerButtons.innerHTML = '';
   displayQuestion(questions[currentQuestion]);
 }
+ 
+//when answer is selected the status bar moves forward
+  function updateBar() {
+    var progressStatus = document.getElementById('progressBarStatus');  
+    progressStatus.style.width = (currentQuestion / maxQuestions) * 100 + "%";
+   }
 
-//displays question and builds answer buttons from questions array
+ //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
   console.log(question)
+  var progressTextEl = document.getElementById('progressText');  
+  progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
   questionText.textContent = question.question
-
-  var progressElement = document.getElementById('progress')
-  progressElement.innerHTML = currentQuestion + 1;
 
   //builds answer buttons from questions array
   question.answers.forEach(answer => {
@@ -59,6 +64,7 @@ function displayQuestion(question) {
     button.innerText = answer.text
     button.classList.add("btn")
     button.addEventListener('click', (event) => selectAnswer(answer.result))
+    button.addEventListener('click', updateBar())
 
     list.appendChild(button);
     console.log(answerButtons)
@@ -69,13 +75,13 @@ function displayQuestion(question) {
   })
 }
 
-//starts quis on the first question
+ //starts quiz on the first question
 function startQuiz() {
   displayQuestion(questions[0])
 }
 
 
-//array of objects each containing a question and an array of answers
+ //array of objects each containing a question and an array of answers
 let questions = [{
     question: "When you're bored at night do you?",
     answers: [
