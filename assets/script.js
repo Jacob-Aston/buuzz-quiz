@@ -102,6 +102,16 @@ let questions = [{
   },
 ]
 
+answers.forEach(choice => {
+  choice.addEventListener('click', e => {
+    
+  })
+
+
+
+
+
+
 startQuiz(questions[0]);
 
 
