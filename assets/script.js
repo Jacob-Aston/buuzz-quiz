@@ -127,14 +127,19 @@ startQuiz();
 
 // Create array buckets of possible results based on api ID#
 
+// Classics
 const pokemonMaster = ["1", "4", "7", "25", "39", "52", "133", "149", "150"];
-const pokemonDiamond = [""];
-const pokemonPlatinum = [];
-const pokemonGold = [];
-const pokemonBronze = [];
+// Legendary
+const pokemonDiamond = ["151", "144", "145", "146", "243", "244", "245", "251", "382", "383", "384", "385", "493"];
+// Legit
+const pokemonPlatinum = ["609", "612", "658", "724", "815", "6", "9", "38", "65", "78", "94", "230"];
+// Meh
+const pokemonGold = ["271", "281", "364", "391", "499", "502", "541", "578", "662"];
+// Who's that pokemon?
+const pokemonBronze = ["438", "415", "361", "351", "316", "223", "201", "129", "517"];
 //Classic Characters
 const disneyMaster = ["4703", "1947", "4704", "2755", "5371", "1944"];
-// Princess
+// Princesses
 const disneyDiamond = ["571", "1284", "3389", "5379", "5614", "6279", "2099", "373"];
 // Villains
 const disneyPlatinum = ["3347", "4180", "7026", "2572", "5986", "1044", "2930", "5542", "4120"];
