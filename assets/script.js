@@ -1,12 +1,9 @@
 var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
 var starUrl = 'https://swapi.dev/api/'
-<<<<<<< HEAD
-=======
 var answerButtons = document.getElementById('answer-buttons')
 var questionText = document.getElementById('question')
 
->>>>>>> 42439c5546a51c306fa974a47632637b64a07d69
 var responseText = document.getElementById('response-text');
 
 var currentQuestion;
@@ -58,38 +55,54 @@ const questions = [{
 question: "When you're bored at night do you?",
 answers: [
   {text:"Watch a movie",
-  nextQuestion: 1 },
+  nextQuestion:'' },
   {text:"Read a book",
-  nextQuestion: 2 },
-  {text:"Grab the Gameboy"
-  },
-  {text:"Play sudoku"}
+  nextQuestion: ''},
+  {text:"Grab the Gameboy",
+  nextQuestion: ''},
+  {text:"Play sudoku",
+  nextQuestion: ''}
 ]
 },
 {
   question: "You want to talk to your best friend. Do you reach for your;",
   answers: [
     {text:"phone",
-    nextQuestion: },
+    nextQuestion: ''},
     {text:"telegraph",
-    nextQuestion: },
-    {text:"Email"
-    },
-    {text:"Instagram"}
+    nextQuestion: ''},
+    {text:"Email",
+    nextQuestion: ''},
+    {text:"Instagram",
+    nextQuestion: ''}
   ]
   },
   {
     question: "Who was the president when you were young?",
     answers: [
       {text:"Nixon",
-      nextQuestion: },
+      nextQuestion: ''},
       {text:"Ronald Reagan",
-      nextQuestion: },
-      {text:"Bill Clinton"
-      },
-      {text:"Donald Trump"}
+      nextQuestion: ''},
+      {text:"Bill Clinton",
+      nextQuestion: ''},
+      {text:"Donald Trump",
+      nextQuestion: ''}
     ]
     },
+    {
+      question: "",
+      answers: [
+        {text:"",
+        nextQuestion: ''},
+        {text:"",
+        nextQuestion: ''},
+        {text:"",
+        nextQuestion: ''},
+        {text:"",
+        nextQuestion: ''}
+      ]
+      },
 ]
 
 
