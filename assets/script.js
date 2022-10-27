@@ -125,5 +125,21 @@ let questions = [{
 
 startQuiz();
 
+// Create array buckets of possible results based on api ID#
 
+const pokemonMaster = ["1", "4", "7", "25", "39", "52", "133", "149", "150"];
+const pokemonDiamond = [""];
+const pokemonPlatinum = [];
+const pokemonGold = [];
+const pokemonBronze = [];
+//Classic Characters
+const disneyMaster = ["4703", "1947", "4704", "2755", "5371", "1944"];
+// Princess
+const disneyDiamond = ["571", "1284", "3389", "5379", "5614", "6279", "2099", "373"];
+// Villains
+const disneyPlatinum = ["3347", "4180", "7026", "2572", "5986", "1044", "2930", "5542", "4120"];
+// Sidekicks
+const disneyGold = ["7473", "5149", "3045", "6030", "6768", "4771", "4706", "25"];
+// Who's That?
+const disneyBronze = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "5621"];
 
