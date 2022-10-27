@@ -16,7 +16,7 @@ var sprite = document.getElementById("img");
 
 
 const getPokemon = () => {
-    var finalCharacter = 68
+    var finalCharacter = 21
     var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
     fetch(pokeUrl)
         .then( res => {
@@ -35,16 +35,16 @@ const getPokemon = () => {
     })    
 };
 
-//getPokemon();
+getPokemon();
 
-//var previous = JSON.parse(localStorage.getItem("character"));
-//console.log(previous);
-//var first = document.getElementById("1")
-//first.textContent = "1. " + previous;
+var previous = JSON.parse(localStorage.getItem("character"));
+console.log(previous);
+var first = document.getElementById("1")
+first.textContent = "1. " + previous;
 
 const getDisney = () => {
-    //var finalCharacter = 2
-    var disneyUrl = `https://api.disneyapi.dev/characters/308`;
+    var finalCharacter = 21
+    var disneyUrl = `https://api.disneyapi.dev/characters/${finalCharacter}`;
     fetch(disneyUrl)
         .then( res => {
             return res.json();
@@ -63,4 +63,4 @@ const getDisney = () => {
     })    
 };
 
-getDisney();
+//getDisney();
