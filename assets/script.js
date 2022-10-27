@@ -146,11 +146,12 @@ answers.forEach(choice => {
       incrementScore(SCORE_DISNEY);
     }
 
-    selected
+    selectedChoice.parentElement.classList.add(classToApply);
 
 
-  })cd 
+  })
 
+});
 
 incrementScore = num => {
   score += num;
