@@ -30,88 +30,74 @@ function getApi(starUrl) {
 }
 getApi(starUrl);
 
+function selectAnswer(result) {
+  console.log("I was selected")
+  console.log(result)
+}
 
 function startQuiz(question) {
   console.log(question)
   currentQuestion = 0
   questionText.textContent = question.question
   question.answers.forEach(answer => {
+    var list = document.createElement("li")
     var button = document.createElement("button")
     button.innerText = answer.text
     button.classList.add("btn")
-    // button.addEventListener('click', selectAnswer)
-    answerButtons.appendChild(button)
+    button.addEventListener('click', (event) => selectAnswer(answer.result))
+    list.appendChild(button);
+    answerButtons.appendChild(list);
     console.log("response");
   })
 }
 
 // question[nextQuestionIndex]
 
-// function selectAnswer()
+
 
 let questions = [{
-  question: "When you're bored at night do you?",
-  answers: [
-    {text:"Watch a movie",
-    nextQuestion:'' },
-    {text:"Read a book",
-    nextQuestion: ''},
-    {text:"Grab the Gameboy",
-    nextQuestion: ''},
-    {text:"Play sudoku",
-    nextQuestion: ''}
-  ]
+    question: "When you're bored at night do you?",
+    answers: [
+      { text:"Watch a movie", result: 'disney' },
+      { text:"Read a book", result: 'disney' },
+      { text:"Grab the Gameboy", result: 'pokemon' },
+      { text:"Play sudoku", result: 'pokemon' }
+    ]
   },
   {
     question: "You want to talk to your best friend. Do you reach for your;",
     answers: [
-      {text:"phone",
-      nextQuestion: ''},
-      {text:"telegraph",
-      nextQuestion: ''},
-      {text:"Email",
-      nextQuestion: ''},
-      {text:"Instagram",
-      nextQuestion: ''}
+      { text:"phone", nextQuestion: '' },
+      { text:"telegraph", nextQuestion: '' },
+      { text:"Email", nextQuestion: '' },
+      { text:"Instagram", nextQuestion: '' }
     ]
   },
   {
     question: "Who was the president when you were young?",
     answers: [
-      {text:"Nixon",
-      nextQuestion: ''},
-      {text:"Ronald Reagan",
-      nextQuestion: ''},
-      {text:"Bill Clinton",
-      nextQuestion: ''},
-      {text:"Donald Trump",
-      nextQuestion: ''}
+      { text:"Nixon", nextQuestion: '' },
+      { text:"Ronald Reagan", nextQuestion: '' },
+      { text:"Bill Clinton", nextQuestion: '' },
+      { text:"Donald Trump", nextQuestion: '' }
     ]
   },
   {
     question: "",
     answers: [
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''}
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' }
     ]
   },
   {
     question: "",
     answers: [
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''},
-      {text:"",
-      nextQuestion: ''}
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' },
+      { text:"", nextQuestion: '' }
     ]
   },
 ]
