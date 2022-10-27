@@ -6,6 +6,7 @@ var questionText = document.getElementById('question')
 
 var currentQuestion = 0;
 
+//console logs data from pokeapi
 function getApi(pokeUrl) {
   fetch(pokeUrl)
     .then(function (response) {
@@ -18,6 +19,7 @@ function getApi(pokeUrl) {
 }
 getApi(pokeUrl);
 
+//console logs data from star wars api
 function getApi(starUrl) {
   fetch(starUrl)
     .then(function (response) {
@@ -30,14 +32,18 @@ function getApi(starUrl) {
 }
 getApi(starUrl);
 
+//when answer is clicked the result property of answer object is passed in
+//clears question and displays next question
 function selectAnswer(result) {
   console.log("I was selected")
   console.log(result)
   currentQuestion = currentQuestion + 1;
+
   answerButtons.innerHTML = '';
   displayQuestion(questions[currentQuestion]);
 }
 
+//displays question and builds answer buttons from questions array
 function displayQuestion(question) {
   console.log(question)
   questionText.textContent = question.question
@@ -45,6 +51,7 @@ function displayQuestion(question) {
   var progressElement = document.getElementById('progress')
   progressElement.innerHTML = currentQuestion + 1;
 
+  //builds answer buttons from questions array
   question.answers.forEach(answer => {
     var list = document.createElement("li")
     var button = document.createElement("button")
@@ -62,13 +69,13 @@ function displayQuestion(question) {
   })
 }
 
+//starts quis on the first question
 function startQuiz() {
   displayQuestion(questions[0])
 }
-// question[nextQuestionIndex]
 
 
-
+//array of objects each containing a question and an array of answers
 let questions = [{
     question: "When you're bored at night do you?",
     answers: [
@@ -153,5 +160,26 @@ incrementScore = num => {
 
 startQuiz();
 
+// Create array buckets of possible results based on api ID#
 
+// Classics
+const pokemonMaster = ["1", "4", "7", "25", "39", "52", "133", "149", "150"];
+// Legendary
+const pokemonDiamond = ["151", "144", "145", "146", "243", "244", "245", "251", "382", "383", "384", "385", "493"];
+// Legit
+const pokemonPlatinum = ["609", "612", "658", "724", "815", "6", "9", "38", "65", "78", "94", "230"];
+// Meh
+const pokemonGold = ["271", "281", "364", "391", "499", "502", "541", "578", "662"];
+// Who's that pokemon?
+const pokemonBronze = ["438", "415", "361", "351", "316", "223", "201", "129", "517"];
+//Classic Characters
+const disneyMaster = ["4703", "1947", "4704", "2755", "5371", "1944"];
+// Princesses
+const disneyDiamond = ["571", "1284", "3389", "5379", "5614", "6279", "2099", "373"];
+// Villains
+const disneyPlatinum = ["3347", "4180", "7026", "2572", "5986", "1044", "2930", "5542", "4120"];
+// Sidekicks
+const disneyGold = ["7473", "5149", "3045", "6030", "6768", "4771", "4706", "25"];
+// Who's That?
+const disneyBronze = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "5621"];
 
