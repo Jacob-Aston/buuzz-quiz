@@ -1,10 +1,8 @@
 var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
 var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
 var starUrl = 'https://swapi.dev/api/'
-var answerButtons = document.getElementById('answer-buttons')
+var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
-
-var responseText = document.getElementById('response-text');
 
 var currentQuestion;
 
@@ -13,7 +11,7 @@ function getApi(pokeUrl) {
     .then(function (response) {
       console.log(response);
       if (response.status === 200) {
-        responseText.textContent = response.status;
+        //responseText.textContent = response.status;
       }
       return response.json();
   });
@@ -25,7 +23,7 @@ function getApi(starUrl) {
     .then(function (response) {
       console.log(response);
       if (response.status === 200) {
-        responseText.textContent = response.status;
+        //responseText.textContent = response.status;
       }
       return response.json();
   });
@@ -34,48 +32,48 @@ getApi(starUrl);
 
 
 function startQuiz(question) {
+  console.log(question)
   currentQuestion = 0
   questionText.textContent = question.question
-  questions.answers.forEach(answer => {
-  var button = document.createElement("button")
-  button.innerText = answer.text
-  button.classList.add("btn")
-  button.addEventListener('click', selectAnswer)
-  answerButtons.appendChild(button)
-  console.log("response");
+  question.answers.forEach(answer => {
+    var button = document.createElement("button")
+    button.innerText = answer.text
+    button.classList.add("btn")
+    // button.addEventListener('click', selectAnswer)
+    answerButtons.appendChild(button)
+    console.log("response");
   })
 }
-startQuiz();
 
-question[nextQuestionIndex]
+// question[nextQuestionIndex]
 
-function selectAnswer()
+// function selectAnswer()
 
-const questions = [{
-question: "When you're bored at night do you?",
-answers: [
-  {text:"Watch a movie",
-  nextQuestion:'' },
-  {text:"Read a book",
-  nextQuestion: ''},
-  {text:"Grab the Gameboy",
-  nextQuestion: ''},
-  {text:"Play sudoku",
-  nextQuestion: ''}
-]
-},
-{
-  question: "You want to talk to your best friend. Do you reach for your;",
+let questions = [{
+  question: "When you're bored at night do you?",
   answers: [
-    {text:"phone",
+    {text:"Watch a movie",
+    nextQuestion:'' },
+    {text:"Read a book",
     nextQuestion: ''},
-    {text:"telegraph",
+    {text:"Grab the Gameboy",
     nextQuestion: ''},
-    {text:"Email",
-    nextQuestion: ''},
-    {text:"Instagram",
+    {text:"Play sudoku",
     nextQuestion: ''}
   ]
+  },
+  {
+    question: "You want to talk to your best friend. Do you reach for your;",
+    answers: [
+      {text:"phone",
+      nextQuestion: ''},
+      {text:"telegraph",
+      nextQuestion: ''},
+      {text:"Email",
+      nextQuestion: ''},
+      {text:"Instagram",
+      nextQuestion: ''}
+    ]
   },
   {
     question: "Who was the president when you were young?",
@@ -89,22 +87,36 @@ answers: [
       {text:"Donald Trump",
       nextQuestion: ''}
     ]
-    },
-    {
-      question: "",
-      answers: [
-        {text:"",
-        nextQuestion: ''},
-        {text:"",
-        nextQuestion: ''},
-        {text:"",
-        nextQuestion: ''},
-        {text:"",
-        nextQuestion: ''}
-      ]
-      },
+  },
+  {
+    question: "",
+    answers: [
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''}
+    ]
+  },
+  {
+    question: "",
+    answers: [
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''},
+      {text:"",
+      nextQuestion: ''}
+    ]
+  },
 ]
 
+startQuiz(questions[0]);
 
 
 
