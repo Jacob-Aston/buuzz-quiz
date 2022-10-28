@@ -39,8 +39,19 @@ getPokemon();
 
 var previous = JSON.parse(localStorage.getItem("character"));
 console.log(previous);
-var first = document.getElementById("1")
-first.textContent = "1. " + previous;
+const populate = previous.map(n => `<li>` +  n + `</li>`);
+console.log(populate);
+const html = `<ul>` + populate.join(``) +  `</ul>`;
+console.log(html);
+document.getElementById("highScores").innerHTML = html;
+
+
+   
+    // Append child? 
+    // Push each result to the array in local storage
+
+//var first = document.getElementById("1")
+//first.textContent = "1. " + previous;
 
 const getDisney = () => {
     var finalCharacter = 21
