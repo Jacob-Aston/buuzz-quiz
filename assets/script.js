@@ -43,8 +43,10 @@ function selectAnswer(result) {
   displayQuestion(questions[currentQuestion]);
     if(result === 'pokemon') {
       incrementScore(SCORE_POKE);
+      console.log(SCORE_DISNEY);
     } else {
       incrementScore(SCORE_DISNEY);
+      console.log(SCORE_POKE);
     }
 }
  
@@ -83,6 +85,8 @@ function displayQuestion(question) {
  //starts quiz on the first question
 function startQuiz() {
   displayQuestion(questions[0])
+  SCORE_POKE = 0;
+  SCORE_DISNEY = 0;
 }
 
 
@@ -272,12 +276,7 @@ let questions = [{
 let SCORE_POKE = 1;
 let SCORE_DISNEY = 1;
 let MAX_QUESTIONS = 10;
-// 
-startQuiz = () => {
-  SCORE_POKE = 0;
-  SCORE_DISNEY = 0;
-}
-
+//
 // button.forEach(choice => {
 //   // choice.addEventListener('click', e => {
 
@@ -306,7 +305,7 @@ startQuiz = () => {
 // });
 
 incrementScore = num => {
-  score += num;
+  // score += num;
 }
 
 
