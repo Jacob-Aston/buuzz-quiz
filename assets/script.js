@@ -190,3 +190,10 @@ const disneyGold = ["7473", "5149", "3045", "6030", "6768", "4771", "4706", "25"
 // Who's That?
 const disneyBronze = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "5621"];
 
+// generate ordered pair
+// associate pair with array
+// pull number from array
+// push number to local storage
+// key pair is result
+// math.random
+//
