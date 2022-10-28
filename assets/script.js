@@ -41,6 +41,11 @@ function selectAnswer(result) {
   currentQuestion = currentQuestion + 1;
   answerButtons.innerHTML = '';
   displayQuestion(questions[currentQuestion]);
+    if(result === 'pokemon') {
+      incrementScore(SCORE_POKE);
+    } else {
+      incrementScore(SCORE_DISNEY);
+    }
 }
  
 //when answer is selected the status bar moves forward
@@ -264,40 +269,41 @@ let questions = [{
   },
 ]
 
-const SCORE_POKE = 1;
-const SCORE_DISNEY = 1;
-const MAX_QUESTIONS = 10;
+let SCORE_POKE = 1;
+let SCORE_DISNEY = 1;
+let MAX_QUESTIONS = 10;
 // 
 startQuiz = () => {
-  score = 0;
+  SCORE_POKE = 0;
+  SCORE_DISNEY = 0;
 }
 
-answers.forEach(choice => {
-  choice.addEventListener('click', e => {
+// button.forEach(choice => {
+//   // choice.addEventListener('click', e => {
 
     
-    const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset[answers]
+//     const selectedChoice = e.target;
+//     const selectAnswer = selectedChoice.dataset[button]
 
-    let classToApply = selectedAnswer == currentQuestion ? 'pokemon' : 'disney';
+//     let classToApply = selectAnswer == currentQuestion ? 'pokemon' : 'disney';
 
-    if(classToApply === 'pokemon') {
-      incrementScore(SCORE_POKE);
-    } else {
-      incrementScore(SCORE_DISNEY);
-    }
+//     if(result === 'pokemon') {
+//       incrementScore(SCORE_POKE);
+//     } else {
+//       incrementScore(SCORE_DISNEY);
+//     }
 
-    selectedChoice.parentElement.classList.add(classToApply);
+//     selectedChoice.parentElement.classList.add(classToApply);
 
-    setTimeout(() => {
-      selectedChoice.parentElement..classList.remove(classToApply);
-      getNewQuestion();
+//     setTimeout(() => {
+//       selectedChoice.parentElement.classList.remove(classToApply);
+//       getNewQuestion();
 
-    }, 1000)
+//     }, 1000)
 
-  })
+//   })
 
-});
+// });
 
 incrementScore = num => {
   score += num;
