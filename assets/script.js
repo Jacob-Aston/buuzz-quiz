@@ -227,15 +227,6 @@ let questions = [{
     ]
   },
   {
-    question: "",
-    answers: [
-      { text:"", result: 'disney' },
-      { text:"", result: 'disney' },
-      { text:"", result: 'pokemon' },
-      { text:"", result: 'pokemon' }
-    ]
-  },
-  {
     question: "What is your favorite school subject?",
     answers: [
       { text:"Art", result: 'disney' },
@@ -271,6 +262,15 @@ let questions = [{
       { text:"Anything with alcohol", result: 'pokemon' }
     ]
   },
+  // {
+  //   question: "",
+  //   answers: [
+  //     { text:"", result: 'disney' },
+  //     { text:"", result: 'disney' },
+  //     { text:"", result: 'pokemon' },
+  //     { text:"", result: 'pokemon' }
+  //   ]
+  // },
 ]
 
 let SCORE_POKE = 1;
