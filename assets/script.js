@@ -294,7 +294,6 @@ const incrementScore = num => {
 
 
 
-startQuiz();
 
 // Create array buckets of possible results based on api ID#
 
@@ -353,6 +352,13 @@ export const randomImage = () => {
   const imageArray = getImageArray();
   return imageArray[Math.floor(Math.random() * imageArray.length)];
 }
+
+startQuiz();
+
+// module.exports = {
+//   getShouldUsePoke, 
+//   randomImage
+// }
 
 // generate ordered pair
 // associate pair with array
