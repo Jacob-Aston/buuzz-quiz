@@ -23,11 +23,11 @@ function selectAnswer(result) {
   }
 
     if(result === 'pokemon') {
-      incrementScore(SCORE_POKE);
-      console.log(SCORE_DISNEY);
-    } else {
-      incrementScore(SCORE_DISNEY);
+      SCORE_POKE = incrementScore(SCORE_POKE);
       console.log(SCORE_POKE);
+    } else {
+      SCORE_DISNEY = incrementScore(SCORE_DISNEY);
+      console.log(SCORE_DISNEY);
     }
 }
  
@@ -102,10 +102,10 @@ let questions = [{
   {
     question: "What is your favorite ice cream flavor?",
     answers: [
-      { text:"Chocolate", nextQuestion: '' },
-      { text:"Vanilla", nextQuestion: '' },
-      { text:"Mint", nextQuestion: '' },
-      { text:"Strawberry", nextQuestion: '' }
+      { text:"Chocolate", result: 'pokemon' },
+      { text:"Vanilla", result: 'disney' },
+      { text:"Mint", result: 'disney' },
+      { text:"Strawberry", result: 'pokemon' }
     ]
   },
   {
@@ -285,36 +285,80 @@ let MAX_QUESTIONS = 10;
 
 // });
 
-incrementScore = num => {
-  // score += num;
+const incrementScore = num => {
+  num++
+  return num
+  console.log(score, num)
+  return score
 }
 
 
 
-startQuiz();
 
 // Create array buckets of possible results based on api ID#
 
 // Classics
-const pokemonMaster = ["1", "4", "7", "25", "39", "52", "133", "149", "150"];
+const pokemonMaster /*10,0*/ = ["1", "4", "7", "25", "39", "52", "133", "149", "150"];
 // Legendary
-const pokemonDiamond = ["151", "144", "145", "146", "243", "244", "245", "251", "382", "383", "384", "385", "493"];
+const pokemonDiamond /*9,1*/ = ["151", "144", "145", "146", "243", "244", "245", "251", "382", "383", "384", "385", "493"];
 // Legit
-const pokemonPlatinum = ["609", "612", "658", "724", "815", "6", "9", "38", "65", "78", "94", "230"];
+const pokemonPlatinum /*8,2*/ = ["609", "612", "658", "724", "815", "6", "9", "38", "65", "78", "94", "230"];
 // Meh
-const pokemonGold = ["271", "281", "364", "391", "499", "502", "541", "578", "662"];
+const pokemonGold /*7,3*/ = ["271", "281", "364", "391", "499", "502", "541", "578", "662"];
 // Who's that pokemon?
-const pokemonBronze = ["438", "415", "361", "351", "316", "223", "201", "129", "517"];
+const pokemonBronze /*6,4*/ = ["438", "415", "361", "351", "316", "223", "201", "129", "517"];
 //Classic Characters
-const disneyMaster = ["4703", "1947", "4704", "2755", "5371", "1944"];
+const disneyMaster /*0,10*/ = ["4703", "1947", "4704", "2755", "5371", "1944"];
 // Princesses
-const disneyDiamond = ["571", "1284", "3389", "5379", "5614", "6279", "2099", "373"];
+const disneyDiamond /*1,9*/ = ["571", "1284", "3389", "5379", "5614", "6279", "2099", "373"];
 // Villains
-const disneyPlatinum = ["3347", "4180", "7026", "2572", "5986", "1044", "2930", "5542", "4120"];
+const disneyPlatinum /*2,8*/ = ["3347", "4180", "7026", "2572", "5986", "1044", "2930", "5542", "4120"];
 // Sidekicks
-const disneyGold = ["7473", "5149", "3045", "6030", "6768", "4771", "4706", "25"];
+const disneyGold /*3,7*/ = ["7473", "5149", "3045", "6030", "6768", "4771", "4706", "25"];
 // Who's That?
-const disneyBronze = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "5621"];
+const disneyBronze /*4,6*/ = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "5621"];
+
+let pokeMap = {
+  "10" : pokemonMaster,
+  "9" : pokemonDiamond,
+  "8" : pokemonPlatinum,
+  "7" : pokemonGold,
+  "6" : pokemonBronze,
+  "5" : []
+}
+
+let disneyMap = {
+  "10" : disneyMaster,
+  "9" : disneyDiamond,
+  "8" : disneyPlatinum,
+  "7" : disneyGold,
+  "6" : disneyBronze,
+  "5" : []
+}
+
+export const getShouldUsePoke = () => {
+  return POKE_SCORE > DISNEY_SCORE;
+}
+
+const getImageArray = () => {
+  let shouldUsePoke = getShouldUsePoke();
+  const useMap = shouldUsePoke ? pokeMap : disneyMap;
+  const  key = shouldUsePoke ? `${POKE_SCORE}` : `${DISNEY_SCORE}`;
+  const imageArray = useMap[key];
+  return imageArray;
+}
+
+export const randomImage = () => {
+  const imageArray = getImageArray();
+  return imageArray[Math.floor(Math.random() * imageArray.length)];
+}
+
+startQuiz();
+
+// module.exports = {
+//   getShouldUsePoke, 
+//   randomImage
+// }
 
 // generate ordered pair
 // associate pair with array
@@ -322,4 +366,8 @@ const disneyBronze = ["7260", "4035", "2619", "7165", "3154", "1406", "304", "56
 // push number to local storage
 // key pair is result
 // math.random
-//
+// photo editor for background
+// bring up imageMap
+// call getShouldUsePoke on result
+// export randomImage and getShouldUsePoke
+// randomImage is going to work for either disney or pokemon, and should use getShouldUsePoke to determine which api is used
