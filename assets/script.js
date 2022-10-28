@@ -1,37 +1,10 @@
 var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
-var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
-var starUrl = 'https://swapi.dev/api/'
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
 
 var currentQuestion = 1;
 var maxQuestions = 10;
 
-//console logs data from pokeapi
-function getApi(pokeUrl) {
-  fetch(pokeUrl)
-    .then(function (response) {
-      console.log(response);
-      if (response.status === 200) {
-        //responseText.textContent = response.status;
-      }
-      return response.json();
-  });
-}
-getApi(pokeUrl);
-
-//console logs data from star wars api
-function getApi(starUrl) {
-  fetch(starUrl)
-    .then(function (response) {
-      console.log(response);
-      if (response.status === 200) {
-        //responseText.textContent = response.status;
-      }
-      return response.json();
-  });
-}
-getApi(starUrl);
 
 //when answer is clicked the result property of answer object is passed in
 //clears question and displays next question
@@ -40,7 +13,15 @@ function selectAnswer(result) {
   console.log(result)
   currentQuestion = currentQuestion + 1;
   answerButtons.innerHTML = '';
+
+
+//takes you to results page when out of questions
+  if(currentQuestion == questions.length) {
+    window.location.href="./results.html"
+  } else {
   displayQuestion(questions[currentQuestion]);
+  }
+
     if(result === 'pokemon') {
       SCORE_POKE = incrementScore(SCORE_POKE);
       console.log(SCORE_POKE);
@@ -227,15 +208,6 @@ let questions = [{
     ]
   },
   {
-    question: "",
-    answers: [
-      { text:"", result: 'disney' },
-      { text:"", result: 'disney' },
-      { text:"", result: 'pokemon' },
-      { text:"", result: 'pokemon' }
-    ]
-  },
-  {
     question: "What is your favorite school subject?",
     answers: [
       { text:"Art", result: 'disney' },
@@ -271,6 +243,15 @@ let questions = [{
       { text:"Anything with alcohol", result: 'pokemon' }
     ]
   },
+  // {
+  //   question: "",
+  //   answers: [
+  //     { text:"", result: 'disney' },
+  //     { text:"", result: 'disney' },
+  //     { text:"", result: 'pokemon' },
+  //     { text:"", result: 'pokemon' }
+  //   ]
+  // },
 ]
 
 let SCORE_POKE = 1;
