@@ -16,7 +16,7 @@ var sprite = document.getElementById("img");
 
 
 const getPokemon = () => {
-    var finalCharacter = 21
+    var finalCharacter = 151
     var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
     fetch(pokeUrl)
         .then( res => {
@@ -25,7 +25,7 @@ const getPokemon = () => {
         .then(data => {console.log(data);
         title.textContent = data.name;
         type.textContent = "#" + data.id;
-        document.getElementById("img").src = data.sprites['front_default'];
+        document.getElementById("img").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${finalCharacter}.png`
         var namesArr = ["litwick", "squirtle"];
         namesArr.push(data.name);
         localStorage.setItem('character', JSON.stringify(namesArr));
@@ -45,13 +45,6 @@ const html = `<ul>` + populate.join(``) +  `</ul>`;
 console.log(html);
 document.getElementById("highScores").innerHTML = html;
 
-
-   
-    // Append child? 
-    // Push each result to the array in local storage
-
-//var first = document.getElementById("1")
-//first.textContent = "1. " + previous;
 
 const getDisney = () => {
     var finalCharacter = 21
