@@ -13,7 +13,15 @@ function selectAnswer(result) {
   console.log(result)
   currentQuestion = currentQuestion + 1;
   answerButtons.innerHTML = '';
+
+
+//takes you to results page when out of questions
+  if(currentQuestion == questions.length) {
+    window.location.href="./results.html"
+  } else {
   displayQuestion(questions[currentQuestion]);
+  }
+
     if(result === 'pokemon') {
       incrementScore(SCORE_POKE);
       console.log(SCORE_DISNEY);
