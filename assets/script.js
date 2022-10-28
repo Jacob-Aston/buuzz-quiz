@@ -85,46 +85,181 @@ function startQuiz() {
 let questions = [{
     question: "When you're bored at night do you?",
     answers: [
-      { text:"Watch a movie", result: 'disney' },
-      { text:"Read a book", result: 'disney' },
-      { text:"Grab the Gameboy", result: 'pokemon' },
-      { text:"Play sudoku", result: 'pokemon' }
+      { text:"Watch a Movie", result: 'disney' },
+      { text:"Read a Book", result: 'disney' },
+      { text:"Grab the GameBoy", result: 'pokemon' },
+      { text:"Play Sudoku", result: 'pokemon' }
     ]
   },
   {
-    question: "You want to talk to your best friend. Do you reach for your;",
+    question: "You want to talk to your best friend. What is your preferred way of communication?;",
     answers: [
-      { text:"phone", nextQuestion: '' },
-      { text:"telegraph", nextQuestion: '' },
-      { text:"Email", nextQuestion: '' },
-      { text:"Instagram", nextQuestion: '' }
+      { text:"Phone call", result: 'pokemon' },
+      { text:"In person", result: 'disney' },
+      { text:"Email", result: 'pokemon' },
+      { text:"Instagram/Facebook", result: 'disney' }
     ]
   },
   {
-    question: "Who was the president when you were young?",
+    question: "What is your Zodiac sign?",
     answers: [
-      { text:"Nixon", nextQuestion: '' },
-      { text:"Ronald Reagan", nextQuestion: '' },
-      { text:"Bill Clinton", nextQuestion: '' },
-      { text:"Donald Trump", nextQuestion: '' }
+      { text:"Capricorn, Aquarius, Pisces", result: 'disney' },
+      { text:"Aries, Taurus, Gemini", result: 'disney' },
+      { text:"Cancer, Leo, Virgo", result: 'pokemon' },
+      { text:"Libra, Scorpio, Sagittarius", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your favorite ice cream flavor?",
+    answers: [
+      { text:"Chocolate", nextQuestion: '' },
+      { text:"Vanilla", nextQuestion: '' },
+      { text:"Mint", nextQuestion: '' },
+      { text:"Strawberry", nextQuestion: '' }
+    ]
+  },
+  {
+    question: "What word best describes you?",
+    answers: [
+      { text:"Adventurous", result: 'disney' },
+      { text:"Loyal", result: 'disney' },
+      { text:"Impatient", result: 'pokemon' },
+      { text:"Stubborn", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your favorite color of the following?",
+    answers: [
+      { text:"Blue", result: 'disney' },
+      { text:"Red", result: 'disney' },
+      { text:"Yellow", result: 'pokemon' },
+      { text:"Black", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your favorite season?",
+    answers: [
+      { text:"Spring", result: 'disney' },
+      { text:"Summer", result: 'disney' },
+      { text:"Fall", result: 'pokemon' },
+      { text:"Winter", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your spirit animal?",
+    answers: [
+      { text:"Lion", result: 'pokemon' },
+      { text:"Bird", result: 'pokemon' },
+      { text:"Dolphin", result: 'disney' },
+      { text:"Monkey", result: 'disney' }
+    ]
+  },
+  {
+    question: "Which super power would you choose?",
+    answers: [
+      { text:"Invisibility", result: 'pokemon' },
+      { text:"Super Strength", result: 'pokemon' },
+      { text:"Flying", result: 'disney' },
+      { text:"Time Travel", result: 'disney' }
+    ]
+  },
+  {
+    question: "What is your favorite movie genre?",
+    answers: [
+      { text:"Comedy", result: 'disney' },
+      { text:"Action", result: 'pokemon' },
+      { text:"Romance", result: 'disney' },
+      { text:"Horror", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "If the chicken crosses the road, I:",
+    answers: [
+      { text:"Ignore it", result: 'pokemon' },
+      { text:"Chase it", result: 'pokemon' },
+      { text:"Ask it why", result: 'disney' },
+      { text:"Stare up at the sky and think about it", result: 'disney' }
+    ]
+  },
+  {
+    question: "What is your life anthem?",
+    answers: [
+      { text:"Don't Stop Believin, Journey", result: 'disney' },
+      { text:"All You Need is Love, The Beatles", result: 'disney' },
+      { text:"Eye of the Tiger, Survivor", result: 'pokemon' },
+      { text:"We Are the Champions, Queen", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your greatest fear?",
+    answers: [
+      { text:"Snakes", result: 'disney' },
+      { text:"Heights", result: 'pokemon' },
+      { text:"Tight spaces", result: 'pokemon' },
+      { text:"Thunder & Lightning", result: 'disney' }
+    ]
+  },
+  {
+    question: "Which do you prefer?",
+    answers: [
+      { text:"Sunny day", result: 'disney' },
+      { text:"Snowy day", result: 'disney' },
+      { text:"Rainy day", result: 'pokemon' },
+      { text:"Windy day", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "Which would you rather have?",
+    answers: [
+      { text:"Love", result: 'disney' },
+      { text:"Beauty", result: 'disney' },
+      { text:"Intelligence", result: 'pokemon' },
+      { text:"Money", result: 'pokemon' }
     ]
   },
   {
     question: "",
     answers: [
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' }
+      { text:"", result: 'disney' },
+      { text:"", result: 'disney' },
+      { text:"", result: 'pokemon' },
+      { text:"", result: 'pokemon' }
     ]
   },
   {
-    question: "",
+    question: "What is your favorite school subject?",
     answers: [
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' },
-      { text:"", nextQuestion: '' }
+      { text:"Art", result: 'disney' },
+      { text:"Music", result: 'disney' },
+      { text:"Math", result: 'pokemon' },
+      { text:"Science", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "Which would you choose to go do?",
+    answers: [
+      { text:"Beach", result: 'disney' },
+      { text:"Shopping", result: 'disney' },
+      { text:"Museum", result: 'pokemon' },
+      { text:"Amusement park", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your favorite holiday?",
+    answers: [
+      { text:"Christmas", result: 'disney' },
+      { text:"Easter", result: 'disney' },
+      { text:"Halloween", result: 'pokemon' },
+      { text:"Fourth of July", result: 'pokemon' }
+    ]
+  },
+  {
+    question: "What is your choice of drink?",
+    answers: [
+      { text:"Water", result: 'disney' },
+      { text:"Pumpkin Latte", result: 'disney' },
+      { text:"Mtn-Dew", result: 'pokemon' },
+      { text:"Anything with alcohol", result: 'pokemon' }
     ]
   },
 ]
@@ -132,7 +267,7 @@ let questions = [{
 const SCORE_POKE = 1;
 const SCORE_DISNEY = 1;
 const MAX_QUESTIONS = 10;
-
+// 
 startQuiz = () => {
   score = 0;
 }
