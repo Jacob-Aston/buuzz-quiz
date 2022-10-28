@@ -154,6 +154,11 @@ answers.forEach(choice => {
 
     selectedChoice.parentElement.classList.add(classToApply);
 
+    setTimeout(() => {
+      selectedChoice.parentElement..classList.remove(classToApply);
+      getNewQuestion();
+
+    }, 1000)
 
   })
 
