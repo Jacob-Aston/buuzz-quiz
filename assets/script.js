@@ -3,20 +3,17 @@ var questionText = document.getElementById('question')
 
 var currentQuestion = 1;
 var maxQuestions = 10;
-var shuffleQuestions;
 
-// //Shuffles question order
-// function shuffleQuestions() {
-//   var shuffleQuestions = questions => {
-//     for (let i = questions.length - 1; i>0; i--) {
-//       var j = Math.floor(Math.random() * (i + 1));
-//       var temp = questions[i];
-//       questions[i] = questions[j];
-//       questions[j] = temp;
-//     }
-//       return questions;
-//   }
-// }
+//Shuffle questions from array
+function shuffleQuestions(questions) {
+  for (let i = questions.length - 1; i > 0; i--) {
+    var randomPosition = Math.floor(Math.random() * (i + 1));
+    var temp = questions[i];
+    questions[i] = questions[randomPosition];
+    questions[randomPosition] = temp;
+  }
+  return questionsToShuffle;
+}
 
 //when answer is clicked the result property of answer object is passed in
 //clears question and displays next question
@@ -25,6 +22,7 @@ function selectAnswer(result) {
   console.log(result)
   currentQuestion = currentQuestion + 1;
   answerButtons.innerHTML = '';
+
 
 //takes you to results page when out of questions
   if(currentQuestion > maxQuestions) {
@@ -45,7 +43,6 @@ function selectAnswer(result) {
  //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
   console.log(question)
-  shuffleQuestions = questions.sort(() => Math.random() - .5);
   var progressTextEl = document.getElementById('progressText');  
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
   questionText.textContent = question.question
@@ -80,7 +77,8 @@ function updateBar() {
 
  //starts quiz on the first question
 function startQuiz() {
-  displayQuestion(questions[0])
+  displayQuestion(questions[0]);
+  shuffleQuestions(questions);
   
   SCORE_POKE = 0;
   SCORE_DISNEY = 0;
@@ -291,7 +289,6 @@ let questions = [{
 
 var questionImage = document.getElementById("questImage");
 questionImage.innerHTML = "<img src=" + questions[0].imageUrl + ">;"
-
 
 
 let SCORE_POKE = 1;
