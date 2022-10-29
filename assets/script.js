@@ -1,37 +1,15 @@
-var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
-var pokeUrl = 'https://pokeapi.co/api/v2/pokemon/ditto'
-var starUrl = 'https://swapi.dev/api/'
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
 
 var currentQuestion = 1;
 var maxQuestions = 10;
 
-//console logs data from pokeapi
-function getApi(pokeUrl) {
-  fetch(pokeUrl)
-    .then(function (response) {
-      console.log(response);
-      if (response.status === 200) {
-        //responseText.textContent = response.status;
-      }
-      return response.json();
-  });
-}
-getApi(pokeUrl);
-
-//console logs data from star wars api
-function getApi(starUrl) {
-  fetch(starUrl)
-    .then(function (response) {
-      console.log(response);
-      if (response.status === 200) {
-        //responseText.textContent = response.status;
-      }
-      return response.json();
-  });
-}
-getApi(starUrl);
+// function shuffleQuestions(arrayShuffle) {
+//   for (let i = arrayShuffle.length - 1; i>0; i--) {
+//     var randomPosition = Math.floor(Math.random() * (i + 1));
+//     var tempPosition = arrayShuffle[i];
+//   }
+// }
 
 //when answer is clicked the result property of answer object is passed in
 //clears question and displays next question
@@ -47,12 +25,6 @@ function selectAnswer(result) {
       incrementScore(SCORE_DISNEY);
     }
 }
- 
-//when answer is selected the status bar moves forward
-  function updateBar() {
-    var progressStatus = document.getElementById('progressBarStatus');  
-    progressStatus.style.width = (currentQuestion / maxQuestions) * 100 + "%";
-   }
 
  //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
@@ -60,6 +32,14 @@ function displayQuestion(question) {
   var progressTextEl = document.getElementById('progressText');  
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
   questionText.textContent = question.question
+
+   
+//when answer is selected the status bar moves forward
+function updateBar() {
+  var progressStatus = document.getElementById('progressBarStatus');  
+  progressStatus.style.width = (currentQuestion / maxQuestions) * 100 + "%";
+ }
+
 
   //builds answer buttons from questions array
   question.answers.forEach(answer => {
