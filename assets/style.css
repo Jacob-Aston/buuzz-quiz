@@ -10,9 +10,6 @@ h1 {
     padding-top: 1rem;
 }
 
-/* body {
-    background: url(/images/star-wars-ship2.jpg)
-} */
 
 p {
     color: white;
@@ -31,14 +28,23 @@ button:hover {
     transform: scale(1.1);
 }
 
+#progressText {
+    padding-left: 2rem;
+}
+
 #progressBar {
+    margin-left: 2rem;
     width: 10rem;
-    height: 1rem;
+    height: 1.6rem;
     border: 0.15rem solid darkblue;
 }
 
 #progressBarStatus {
-    height: 1.1rem;
+    height: 1.3rem;
     background-color: darkblue;
     width: 0%; 
 }
+
+#questImage {
+    width: 25%;
+  }
