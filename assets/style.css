@@ -4,19 +4,16 @@ html {
 
 @font-face {
     font-family: pokemon;
-    src: url(/pokemonHollow.ttf)
+    src: url(/pokemonSolid.ttf)
 }
 
 h1 {
     color: #ffcc03;
     font-family: pokemon;
-    font-size: 60px;
+    font-size: 48px;
     padding-top: 1rem;
 }
 
-/* body {
-    background: url(/images/star-wars-ship2.jpg)
-} */
 
 #results-title {
     color: white;
@@ -27,6 +24,13 @@ h1 {
      font-size: 24px;
      font-weight: bold;
      background-color: blue;
+     color: white;
+}
+
+#results {
+     font-size: 24px;
+     font-weight: bold;
+     background-color: rgb(228, 52, 52);
 }
 
 button:hover {
@@ -35,14 +39,24 @@ button:hover {
     transform: scale(1.1);
 }
 
+#progressText {
+    padding-left: 2rem;
+}
+
 #progressBar {
+    margin-left: 2rem;
     width: 10rem;
-    height: 1rem;
+    height: 1.6rem;
     border: 0.15rem solid darkblue;
 }
 
 #progressBarStatus {
-    height: 1.1rem;
+    height: 1.4rem;
     background-color: darkblue;
     width: 0%; 
+    margin-bottom: 1px;
+}
+
+#questImage {
+    width: 30%; 
 }

@@ -1,10 +1,19 @@
-var requestUrl = 'https://api.github.com/orgs/nodejs/repos?per_page=5';
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
 
 var currentQuestion = 1;
 var maxQuestions = 10;
 
+//Shuffle questions from array
+function shuffleQuestions(questions) {
+  for (let i = questions.length - 1; i > 0; i--) {
+    var randomPosition = Math.floor(Math.random() * (i + 1));
+    var temp = questions[i];
+    questions[i] = questions[randomPosition];
+    questions[randomPosition] = temp;
+  }
+  return questions;
+}
 
 //when answer is clicked the result property of answer object is passed in
 //clears question and displays next question
@@ -16,7 +25,7 @@ function selectAnswer(result) {
 
 
 //takes you to results page when out of questions
-  if(currentQuestion == questions.length) {
+  if(currentQuestion > maxQuestions) {
     window.location.href="./results.html"
   } else {
   displayQuestion(questions[currentQuestion]);
@@ -30,12 +39,6 @@ function selectAnswer(result) {
       console.log(SCORE_DISNEY);
     }
 }
- 
-//when answer is selected the status bar moves forward
-  function updateBar() {
-    var progressStatus = document.getElementById('progressBarStatus');  
-    progressStatus.style.width = (currentQuestion / maxQuestions) * 100 + "%";
-   }
 
  //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
@@ -43,6 +46,18 @@ function displayQuestion(question) {
   var progressTextEl = document.getElementById('progressText');  
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
   questionText.textContent = question.question
+  
+//to change picture to current picture from questions array
+  var questionImage = document.getElementById("questImage");
+  questionImage.innerHTML = "<img src=" + questions[currentQuestion].imageUrl + ">"
+  
+   
+//when answer is selected the status bar moves forward
+function updateBar() {
+  var progressStatus = document.getElementById('progressBarStatus');  
+  progressStatus.style.width = (currentQuestion / maxQuestions) * 100 + "%";
+ }
+
 
   //builds answer buttons from questions array
   question.answers.forEach(answer => {
@@ -66,14 +81,16 @@ function displayQuestion(question) {
 
  //starts quiz on the first question
 function startQuiz() {
-  displayQuestion(questions[0])
+  displayQuestion(questions[0]);
+  shuffleQuestions(questions);
+  
   SCORE_POKE = 0;
   SCORE_DISNEY = 0;
 }
 
-
  //array of objects each containing a question and an array of answers
 let questions = [{
+    imageUrl: "./assets/images/charizard.jpg",
     question: "When you're bored at night do you?",
     answers: [
       { text:"Watch a Movie", result: 'disney' },
@@ -83,7 +100,8 @@ let questions = [{
     ]
   },
   {
-    question: "You want to talk to your best friend. What is your preferred way of communication?;",
+    imageUrl: "./assets/images/princesses.jpg",
+    question: "You want to talk to your best friend. What is your preferred way of communication?",
     answers: [
       { text:"Phone call", result: 'pokemon' },
       { text:"In person", result: 'disney' },
@@ -92,6 +110,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/feraligator.jpg",
     question: "What is your Zodiac sign?",
     answers: [
       { text:"Capricorn, Aquarius, Pisces", result: 'disney' },
@@ -101,6 +120,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/frozen.jpg",
     question: "What is your favorite ice cream flavor?",
     answers: [
       { text:"Chocolate", result: 'pokemon' },
@@ -110,6 +130,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/giritina.jpg",
     question: "What word best describes you?",
     answers: [
       { text:"Adventurous", result: 'disney' },
@@ -119,6 +140,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/lilo-stitch.jpg",
     question: "What is your favorite color of the following?",
     answers: [
       { text:"Blue", result: 'disney' },
@@ -128,6 +150,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/legendaries.jpg",
     question: "What is your favorite season?",
     answers: [
       { text:"Spring", result: 'disney' },
@@ -137,6 +160,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/encanto.jpeg",
     question: "What is your spirit animal?",
     answers: [
       { text:"Lion", result: 'pokemon' },
@@ -146,6 +170,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/lucario.jpg",
     question: "Which super power would you choose?",
     answers: [
       { text:"Invisibility", result: 'pokemon' },
@@ -155,6 +180,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/mickey.jpg",
     question: "What is your favorite movie genre?",
     answers: [
       { text:"Comedy", result: 'disney' },
@@ -164,6 +190,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/lugia.jpg",
     question: "If the chicken crosses the road, I:",
     answers: [
       { text:"Ignore it", result: 'pokemon' },
@@ -173,6 +200,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/marvel.jpg",
     question: "What is your life anthem?",
     answers: [
       { text:"Don't Stop Believin, Journey", result: 'disney' },
@@ -182,15 +210,17 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/pikachu.png",
     question: "What is your greatest fear?",
     answers: [
       { text:"Snakes", result: 'disney' },
       { text:"Heights", result: 'pokemon' },
       { text:"Tight spaces", result: 'pokemon' },
-      { text:"Thunder & Lightning", result: 'disney' }
+      { text:"Dark", result: 'disney' }
     ]
   },
   {
+    imageUrl: "./assets/images/nemo.jpg",
     question: "Which do you prefer?",
     answers: [
       { text:"Sunny day", result: 'disney' },
@@ -200,6 +230,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/rayquaza.jpg",
     question: "Which would you rather have?",
     answers: [
       { text:"Love", result: 'disney' },
@@ -209,6 +240,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/pixar.jpg",
     question: "What is your favorite school subject?",
     answers: [
       { text:"Art", result: 'disney' },
@@ -218,6 +250,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/snorlax.jpg",
     question: "Which would you choose to go do?",
     answers: [
       { text:"Beach", result: 'disney' },
@@ -227,6 +260,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/villians.jpg",
     question: "What is your favorite holiday?",
     answers: [
       { text:"Christmas", result: 'disney' },
@@ -236,6 +270,7 @@ let questions = [{
     ]
   },
   {
+    imageUrl: "./assets/images/venusaur.jpg",
     question: "What is your choice of drink?",
     answers: [
       { text:"Water", result: 'disney' },
@@ -244,16 +279,20 @@ let questions = [{
       { text:"Anything with alcohol", result: 'pokemon' }
     ]
   },
-  // {
-  //   question: "",
-  //   answers: [
-  //     { text:"", result: 'disney' },
-  //     { text:"", result: 'disney' },
-  //     { text:"", result: 'pokemon' },
-  //     { text:"", result: 'pokemon' }
-  //   ]
-  // },
+  {
+    imageUrl: "./assets/images/moana.jpg",
+    question: "Would you rather...?",
+    answers: [
+      { text:"Speak to animals", result: 'disney' },
+      { text:"Read people's thoughts", result: 'disney' },
+      { text:"Speak 10 foreign languages", result: 'pokemon' },
+      { text:"Have a sixth sense", result: 'pokemon' }
+    ]
+  },
 ]
+
+
+
 
 let SCORE_POKE = 1;
 let SCORE_DISNEY = 1;
@@ -337,9 +376,9 @@ let disneyMap = {
   "5" : []
 }
 
-export const getShouldUsePoke = () => {
-  return POKE_SCORE > DISNEY_SCORE;
-}
+// export const getShouldUsePoke = () => {
+//   return POKE_SCORE > DISNEY_SCORE;
+// }
 
 const getImageArray = () => {
   let shouldUsePoke = getShouldUsePoke();
