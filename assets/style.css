@@ -60,3 +60,7 @@ button:hover {
 #questImage {
     width: 30%; 
 }
+
+#prev-btn-on-start {
+    box-sizing: border-box;
+}
