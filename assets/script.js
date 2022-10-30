@@ -46,7 +46,10 @@ function displayQuestion(question) {
   var progressTextEl = document.getElementById('progressText');  
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
   questionText.textContent = question.question
-
+  
+//to change picture to current picture from questions array
+  var questionImage = document.getElementById("questImage");
+  questionImage.innerHTML = "<img src=" + questions[currentQuestion].imageUrl + ">"
   
    
 //when answer is selected the status bar moves forward
@@ -287,8 +290,7 @@ let questions = [{
   },
 ]
 
-var questionImage = document.getElementById("questImage");
-questionImage.innerHTML = "<img src=" + questions[0].imageUrl + ">"
+
 
 
 let SCORE_POKE = 1;
