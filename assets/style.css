@@ -1,12 +1,12 @@
 @font-face {
     font-family: pokemon;
-    src: url(/pokemonHollow.ttf)
+    src: url(/pokemonSolid.ttf)
 }
 
 h1 {
     color: #ffcc03;
     font-family: pokemon;
-    font-size: 60px;
+    font-size: 48px;
     padding-top: 1rem;
 }
 
@@ -20,6 +20,13 @@ p {
      font-size: 24px;
      font-weight: bold;
      background-color: blue;
+     color: white;
+}
+
+#results {
+     font-size: 24px;
+     font-weight: bold;
+     background-color: rgb(228, 52, 52);
 }
 
 button:hover {
@@ -40,11 +47,12 @@ button:hover {
 }
 
 #progressBarStatus {
-    height: 1.3rem;
+    height: 1.4rem;
     background-color: darkblue;
     width: 0%; 
+    margin-bottom: 1px;
 }
 
 #questImage {
-    width: 25%;
-  }
+    width: 30%; 
+}

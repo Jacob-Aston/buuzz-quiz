@@ -12,7 +12,7 @@ function shuffleQuestions(questions) {
     questions[i] = questions[randomPosition];
     questions[randomPosition] = temp;
   }
-  return questionsToShuffle;
+  return questions;
 }
 
 //when answer is clicked the result property of answer object is passed in
@@ -288,7 +288,7 @@ let questions = [{
 ]
 
 var questionImage = document.getElementById("questImage");
-questionImage.innerHTML = "<img src=" + questions[0].imageUrl + ">;"
+questionImage.innerHTML = "<img src=" + questions[0].imageUrl + ">"
 
 
 let SCORE_POKE = 1;
