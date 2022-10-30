@@ -387,10 +387,10 @@ const getImageArray = () => {
   return imageArray;
 }
 
-// export const randomImage = () => {
-//   const imageArray = getImageArray();
-//   return imageArray[Math.floor(Math.random() * imageArray.length)];
-// }
+export const randomImage = () => {
+  const imageArray = getImageArray();
+  return imageArray[Math.floor(Math.random() * imageArray.length)];
+}
 
 startQuiz();
 
