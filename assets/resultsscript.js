@@ -16,7 +16,7 @@ var sprite = document.getElementById("img");
 
 
 const getPokemon = () => {
-    var finalCharacter = 607
+    var finalCharacter = 151
     var pokeUrl = `https://pokeapi.co/api/v2/pokemon/${finalCharacter}`;
     fetch(pokeUrl)
         .then( res => {
@@ -25,32 +25,40 @@ const getPokemon = () => {
         .then(data => {console.log(data);
         title.textContent = data.name;
         type.textContent = "#" + data.id;
-        document.getElementById("img").src = data.sprites['front_default'];
+        document.getElementById("img").src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${finalCharacter}.png`
         var namesArr = ["litwick", "squirtle"];
         namesArr.push(data.name);
         localStorage.setItem('character', JSON.stringify(namesArr));
         console.log(namesArr);
+        document.getElementById("info").href = `https://bulbapedia.bulbagarden.net/wiki/${data.name}_(Pok%C3%A9mon)`;
         //localStorage.setItem('character', data.name);
     })    
 };
 
 getPokemon();
-//var previous = JSON.parse(localStorage.getItem("character"));
-//console.log(previous);
-//var first = document.getElementById("1")
-//first.textContent = "1. " + previous;
 
-const getStarWars = () => {
-    var finalCharacter = 1
-    var starUrl = `https://swapi.dev/api/people/${finalCharacter}`;
-    fetch(starUrl)
+var previous = JSON.parse(localStorage.getItem("character"));
+console.log(previous);
+const populate = previous.map(n => `<li>` +  n + `</li>`);
+console.log(populate);
+const html = `<ul>` + populate.join(``) +  `</ul>`;
+console.log(html);
+document.getElementById("highScores").innerHTML = html;
+
+
+const getDisney = () => {
+    var finalCharacter = 21
+    var disneyUrl = `https://api.disneyapi.dev/characters/${finalCharacter}`;
+    fetch(disneyUrl)
         .then( res => {
             return res.json();
         })
         .then(data => {console.log(data);
         title.textContent = data.name;
-        type.textContent = "#" + data.birth_year;
-        document.getElementById("img").src = "./images/Star_Wars_logo.png";
+        console.log(data.name);
+        type.textContent = data.films;
+        document.getElementById("img").src = data.imageUrl;
+        document.getElementById("info").href = `https://disney.fandom.com/wiki/${data.name}`;
         //var namesArr = ["litwick", "squirtle"];
         //namesArr.push(data.name);
         //localStorage.setItem('character', JSON.stringify(namesArr));
@@ -59,4 +67,4 @@ const getStarWars = () => {
     })    
 };
 
-//getStarWars();
+//getDisney();
