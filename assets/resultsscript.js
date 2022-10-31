@@ -1,6 +1,9 @@
 var reveal = document.querySelector("#btn");
 var result = document.getElementById("result");
 
+import { randomImage } from "./script.js";
+console.log(randomImage)
+
 reveal.addEventListener("click", function(){
     console.log("Sup bro");
     console.log(result);
@@ -39,7 +42,7 @@ getPokemon();
 
 var previous = JSON.parse(localStorage.getItem("character"));
 console.log(previous);
-const populate = previous.map(n => `<li>` +  n + `</li>`);
+const populate = previous.map(n => `<li class="box">` +  n + `</li>`);
 console.log(populate);
 const html = `<ul>` + populate.join(``) +  `</ul>`;
 console.log(html);

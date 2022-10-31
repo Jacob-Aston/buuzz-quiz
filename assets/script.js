@@ -65,7 +65,9 @@ function updateBar() {
     var button = document.createElement("button")
 
     button.innerText = answer.text
-    button.classList.add("btn")
+    button.classList.add("button")
+    button.classList.add("is-fullwidth")
+    button.classList.add("mt-3")
     button.addEventListener('click', (event) => selectAnswer(answer.result))
     button.addEventListener('click', updateBar())
 
