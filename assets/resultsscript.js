@@ -1,6 +1,9 @@
 var reveal = document.querySelector("#btn");
 var result = document.getElementById("result");
 
+import { randomImage } from "./script.js";
+console.log(randomImage)
+
 reveal.addEventListener("click", function(){
     console.log("Sup bro");
     console.log(result);

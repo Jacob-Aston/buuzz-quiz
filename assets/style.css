@@ -1,7 +1,9 @@
 html {
     background-color: wheat;
 }
-
+body {
+    background-color: wheat;
+}
 @font-face {
     font-family: pokemon;
     src: url(/pokemonSolid.ttf)
@@ -45,8 +47,7 @@ button:hover {
 }
 
 #progressBar {
-    margin-left: 2rem;
-    width: 20rem;
+    width: 100%;
     height: 1.6rem;
     border: 0.15rem solid darkblue;
 }
