@@ -1,5 +1,5 @@
 html {
-    background-color: gray;
+    background-color: wheat;
 }
 
 @font-face {
@@ -12,6 +12,13 @@ h1 {
     font-family: pokemon;
     font-size: 48px;
     padding-top: 1rem;
+}
+
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px -2px rgb(183, 236, 237);
+    transform: scale(1.1);
 }
 
 
@@ -33,19 +40,13 @@ h1 {
      background-color: rgb(228, 52, 52);
 }
 
-button:hover {
-    cursor: pointer;
-    box-shadow: 3px 3px 3px -2px rgb(183, 236, 237);
-    transform: scale(1.1);
-}
-
 #progressText {
     padding-left: 2rem;
 }
 
 #progressBar {
     margin-left: 2rem;
-    width: 10rem;
+    width: 20rem;
     height: 1.6rem;
     border: 0.15rem solid darkblue;
 }
@@ -58,7 +59,7 @@ button:hover {
 }
 
 #questImage {
-    width: 30%; 
+    width: 100%; 
 }
 
 #prev-btn-on-start {

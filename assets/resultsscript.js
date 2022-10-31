@@ -39,7 +39,7 @@ getPokemon();
 
 var previous = JSON.parse(localStorage.getItem("character"));
 console.log(previous);
-const populate = previous.map(n => `<li>` +  n + `</li>`);
+const populate = previous.map(n => `<li class="box">` +  n + `</li>`);
 console.log(populate);
 const html = `<ul>` + populate.join(``) +  `</ul>`;
 console.log(html);
