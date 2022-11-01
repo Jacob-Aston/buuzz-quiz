@@ -1,9 +1,7 @@
 html {
-    background-color: wheat;
+    background-color: whitesmoke;
 }
-body {
-    background-color: wheat;
-}
+
 @font-face {
     font-family: pokemon;
     src: url(/pokemonSolid.ttf)
@@ -24,7 +22,7 @@ button:hover {
 }
 
 
-.grid {
+.answer-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
@@ -32,8 +30,11 @@ button:hover {
     row-gap: 1.5rem;
 }
 
-.answer-buttons {
-    grid-area: answers;
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: repeat(4, 1fr) ;
+    row-gap: 1rem ;
 }
 
 #results-title {
@@ -80,9 +81,17 @@ button:hover {
 }
 
 @media screen and (min-width: 769px) {
-    .grid {
-        display:grid;
+    .answer-grid {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
+    }
+
+    .results-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 1rem;
+        row-gap: 1rem ;
     }
 }

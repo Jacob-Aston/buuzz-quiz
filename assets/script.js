@@ -66,7 +66,6 @@ function updateBar() {
 
     button.innerText = answer.text
     button.classList.add("button")
-    button.classList.add("answer-button")
     button.classList.add("is-fullwidth")
     button.classList.add("is-size-4")
     button.addEventListener('click', (event) => selectAnswer(answer.result))

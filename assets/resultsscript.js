@@ -39,11 +39,13 @@ const getPokemon = () => {
 getPokemon();
 
 var previous = JSON.parse(localStorage.getItem("character"));
-console.log(previous);
-const populate = previous.map(n => `<li class="box">` +  n + `</li>`);
-console.log(populate);
-const html = `<ul>` + populate.join(``) +  `</ul>`;
-console.log(html);
+console.log("previous", previous);
+const populate = previous.map(n => `
+<li class="card is-size-3 has-text-centered py-4">` +  n + `</li>`);
+console.log("populate", populate);
+const html = populate.join(``) + `
+<li><a href="index.html"><div class="box is-fullwidth is-size-3 has-text-centered has-text-white has-background-link">Take Quiz Again</div></a></li>`;
+console.log("html", html);
 document.getElementById("highScores").innerHTML = html;
 
 
