@@ -384,7 +384,7 @@ let disneyMap = {
 const getImageArray = () => {
   let shouldUsePoke = getShouldUsePoke();
   const useMap = shouldUsePoke ? pokeMap : disneyMap;
-  const  key = shouldUsePoke ? `${POKE_SCORE}` : `${DISNEY_SCORE}`;
+  const  key = shouldUsePoke ? `${SCORE_POKE}` : `${SCORE_DISNEY}`;
   const imageArray = useMap[key];
   return imageArray;
 }
