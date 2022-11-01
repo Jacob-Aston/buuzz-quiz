@@ -1,5 +1,6 @@
 var reveal = document.querySelector("#btn");
 var result = document.getElementById("result");
+var quiz2 = document.getElementById("quiz2");
 
 
 reveal.addEventListener("click", function(){
@@ -31,15 +32,8 @@ const getPokemon = () => {
         existing.push(data.name);
         localStorage.setItem(`character`, JSON.stringify(existing));
 
-
-        //var namesArr = [];
-        //var existing = localStorage.getItem(`character`);
-        //namesArr.push(existing);
-        //namesArr.push(data.name);
-        //localStorage.setItem('character', JSON.stringify(namesArr));
-        //console.log(namesArr);
         document.getElementById("info").href = `https://bulbapedia.bulbagarden.net/wiki/${data.name}_(Pok%C3%A9mon)`;
-        //localStorage.setItem('character', data.name);
+        
     })    
 };
 
@@ -70,11 +64,10 @@ const getDisney = () => {
         type.textContent = data.films;
         document.getElementById("img").src = data.imageUrl;
         document.getElementById("info").href = `https://disney.fandom.com/wiki/${data.name}`;
-        //var namesArr = ["litwick", "squirtle"];
-        //namesArr.push(data.name);
-        //localStorage.setItem('character', JSON.stringify(namesArr));
-        //console.log(namesArr);
-        //localStorage.setItem('character', data.name);
+        var existing = localStorage.getItem(`character`);
+        existing = existing ? JSON.parse(existing) : [];
+        existing.push(data.name);
+        localStorage.setItem(`character`, JSON.stringify(existing));
     })    
 };
 
