@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quiz Results!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+   
   </head>
   <body>
-    <section class="hero is-medium is-link has-text-centered">
+    <section class="hero is-small is-link has-text-centered">
       <div class="hero-body">
-        <p class="title">
+        <p id="results-title" class="title">
           Based on our foolproof quiz, you are .....
         </p>
         <button class="button is-large" id="btn">Reveal Results</button>
       </div>
     </section>
     <div class="container has-background-white is-fluid" id="result" style="display:none">
-      <div class="notification">
+      <div class="box has-background-white-ter">
         <div class="media-content">
           <p class="title is-1" id="title1"></p>
           <p class="subtitle is-4" id="type"></p>
         </div>
-        <figure class="image is-square">
+        <figure style="width:100%; display:flex">
           <img id="img" src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
         </figure>
         <div class="content is-size-4">
@@ -32,13 +34,12 @@
       </div>
     </div>
   
-    <div id="prevResults">
-      <h2> Previous Results </h2>
-      <ul id="highScores"></ul>
+    <h2 class="is-size-4"> Previous Results </h2>
+    <div id="prevResults" class="box has-background-grey-lighter">
+      <ul id="highScores" class="results-grid"></ul>
     </div>
-
     <div>
-        <a href="index.html">Take Quiz Again</a>
+      <a href="index.html">Take Quiz Again</a>
     </div>
   <script src="./assets/resultsscript.js"></script>
   </body>

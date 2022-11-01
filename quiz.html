@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-    <div class ="imageContainer"
-        <div id="questImage"></div>
-        <div id="progressText"></div>
-        <div id="progressBar">
-            <div id="progressBarStatus"></div>
+    <section class="columns is-centered">
+        <div class ="column box is-half has-text-centered">
+            <div id="questImage"></div>
+            <div id="progressText"></div>
+            <div id="progressBar">
+                <div id="progressBarStatus"></div>
+            </div>
         </div>
+    </section>
+    <div class ="container box has-text-centered is-size-3">
+        <div id="question" class="mb-3">Question</div>
+        <ul id="answers" class="answer-grid"></ul>
     </div>
-    <div class ="container">
-    <div id="question">Question</div>
-    <ul id="answers"></ul>
-    <script src="/assets/script.js" type="module"></script>
-    </div>
+    <script src="/assets/script.js"></script>
 </body>
 </html>
