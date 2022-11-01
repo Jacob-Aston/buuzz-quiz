@@ -95,3 +95,10 @@ button:hover {
         row-gap: 1rem ;
     }
 }
+
+#img {
+    height: 35%;
+    width: 35%;
+    margin: 0 auto;
+    justify-self: center;
+}

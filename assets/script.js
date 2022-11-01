@@ -1,6 +1,5 @@
 var answerButtons = document.getElementById('answers')
 var questionText = document.getElementById('question')
-
 var currentQuestion = 1;
 var maxQuestions = 10;
 
@@ -26,6 +25,7 @@ function selectAnswer(result) {
 
 //takes you to results page when out of questions
   if(currentQuestion > maxQuestions) {
+    randomImage()
     window.location.href="./results.html"
   } else {
   displayQuestion(questions[currentQuestion]);
@@ -34,15 +34,15 @@ function selectAnswer(result) {
     if(result === 'pokemon') {
       SCORE_POKE = incrementScore(SCORE_POKE);
       //console.log(SCORE_POKE);
-    } else {
-      SCORE_DISNEY = incrementScore(SCORE_DISNEY);
-      //console.log(SCORE_DISNEY);
-    }
+    // } else {
+    //   SCORE_DISNEY = incrementScore(SCORE_DISNEY);
+    //   //console.log(SCORE_DISNEY);
+  }
 }
 
  //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
-  //console.log(question)
+  // console.log(question);
   var progressTextEl = document.getElementById('progressText');  
   //console.log(document);
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;  
@@ -50,7 +50,7 @@ function displayQuestion(question) {
 
 //to change picture to current picture from questions array
   var questionImage = document.getElementById("questImage");
-  questionImage.innerHTML = "<img src=" + questions[currentQuestion].imageUrl + ">"
+  questionImage.innerHTML = "<img src=" + questions[currentQuestion].imageUrl + ">";
   
    
 //when answer is selected the status bar moves forward
@@ -87,7 +87,7 @@ function startQuiz() {
   shuffleQuestions(questions);
   
   SCORE_POKE = 0;
-  SCORE_DISNEY = 0;
+  // SCORE_DISNEY = 0;
 }
 
  //array of objects each containing a question and an array of answers
@@ -297,7 +297,7 @@ let questions = [{
 
 
 let SCORE_POKE = 1;
-let SCORE_DISNEY = 1;
+// let SCORE_DISNEY = 1;
 let MAX_QUESTIONS = 10;
 //
 // button.forEach(choice => {
@@ -349,6 +349,8 @@ const pokemonPlatinum /*8,2*/ = ["609", "612", "658", "724", "815", "6", "9", "3
 const pokemonGold /*7,3*/ = ["271", "281", "364", "391", "499", "502", "541", "578", "662"];
 // Who's that pokemon?
 const pokemonBronze /*6,4*/ = ["438", "415", "361", "351", "316", "223", "201", "129", "517"];
+// ditto
+const ditto /*ditto*/ = ["132"];
 //Classic Characters
 const disneyMaster /*0,10*/ = ["4703", "1947", "4704", "2755", "5371", "1944"];
 // Princesses
@@ -366,36 +368,44 @@ let pokeMap = {
   "8" : pokemonPlatinum,
   "7" : pokemonGold,
   "6" : pokemonBronze,
-  "5" : []
+  "5" : ditto,
+  "4" : disneyBronze,
+  "3" : disneyGold,
+  "2" : disneyPlatinum,
+  "1" : disneyDiamond,
+  "0" : disneyMaster
 }
 
-let disneyMap = {
-  "10" : disneyMaster,
-  "9" : disneyDiamond,
-  "8" : disneyPlatinum,
-  "7" : disneyGold,
-  "6" : disneyBronze,
-  "5" : []
-}
+// let disneyMap = {
+//   "10" : disneyMaster,
+//   "9" : disneyDiamond,
+//   "8" : disneyPlatinum,
+//   "7" : disneyGold,
+//   "6" : disneyBronze,
+//   "5" : []
+// }
 
-const getShouldUsePoke = () => {
-  return SCORE_POKE > SCORE_DISNEY;
-}
+// const getShouldUsePoke = () => {
+//   return SCORE_POKE > SCORE_DISNEY;
+// }
 
 const getImageArray = () => {
-  let shouldUsePoke = getShouldUsePoke();
-  const useMap = shouldUsePoke ? pokeMap : disneyMap;
-  const  key = shouldUsePoke ? `${SCORE_POKE}` : `${SCORE_DISNEY}`;
-  const imageArray = useMap[key];
-  return imageArray;
+  const  key = `${SCORE_POKE}`;
+  const imageArray = pokeMap[key];
 }
 
 const randomImage = () => {
-  const imageArray = getImageArray();
-  return imageArray[Math.floor(Math.random() * imageArray.length)];
+  const imageArray = pokeMap[`${SCORE_POKE}`];
+  const imageId = imageArray[Math.floor(Math.random() * imageArray.length)];
+  localStorage.setItem('score', SCORE_POKE);
+  localStorage.setItem('result', imageId);
+  console.log('result', imageId);
 }
 
+
 startQuiz();
+
+// chad will pull result
 // export default{
 //   getShouldUsePoke,
 //   randomImage,
@@ -416,4 +426,4 @@ startQuiz();
 // call getShouldUsePoke on result
 // export randomImage and getShouldUsePoke
 // randomImage is going to work for either disney or pokemon, and should use getShouldUsePoke to determine which api is used
-// find a way to call startQuiz without actually calling
+// find a way to call startQuiz without actually calling 
