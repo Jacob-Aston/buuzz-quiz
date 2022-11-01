@@ -44,9 +44,10 @@ function selectAnswer(result) {
 function displayQuestion(question) {
   console.log(question)
   var progressTextEl = document.getElementById('progressText');  
-  progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;   
-  questionText.textContent = question.question
-  
+  console.log(document);
+  progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;  
+  questionText.textContent = question.question;
+
 //to change picture to current picture from questions array
   var questionImage = document.getElementById("questImage");
   questionImage.innerHTML = "<img src=" + questions[currentQuestion].imageUrl + ">"
@@ -377,9 +378,9 @@ let disneyMap = {
   "5" : []
 }
 
-// export const getShouldUsePoke = () => {
-//   return POKE_SCORE > DISNEY_SCORE;
-// }
+export const getShouldUsePoke = () => {
+  return SCORE_POKE > SCORE_DISNEY;
+}
 
 const getImageArray = () => {
   let shouldUsePoke = getShouldUsePoke();
@@ -395,7 +396,11 @@ export const randomImage = () => {
 }
 
 startQuiz();
-
+console.log(/*getShouldUsePoke(),*/ randomImage());
+// export default{
+//   getShouldUsePoke,
+//   randomImage,
+// };
 // module.exports = {
 //   getShouldUsePoke, 
 //   randomImage
@@ -412,3 +417,4 @@ startQuiz();
 // call getShouldUsePoke on result
 // export randomImage and getShouldUsePoke
 // randomImage is going to work for either disney or pokemon, and should use getShouldUsePoke to determine which api is used
+// find a way to call startQuiz without actually calling

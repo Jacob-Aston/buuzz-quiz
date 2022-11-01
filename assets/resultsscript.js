@@ -1,3 +1,6 @@
+import {
+    randomImage, getShouldUsePoke
+} from './script.js';
 var reveal = document.querySelector("#btn");
 var result = document.getElementById("result");
 
@@ -36,7 +39,7 @@ const getPokemon = () => {
     })    
 };
 
-getPokemon();
+
 
 var previous = JSON.parse(localStorage.getItem("character"));
 console.log(previous);
@@ -67,5 +70,5 @@ const getDisney = () => {
         //localStorage.setItem('character', data.name);
     })    
 };
-
+getPokemon();
 //getDisney();
