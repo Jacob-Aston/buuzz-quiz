@@ -29,7 +29,6 @@ const getPokemon = () => {
         localStorage.setItem(`character`, JSON.stringify(existing));
 
         document.getElementById("info").href = `https://bulbapedia.bulbagarden.net/wiki/${data.name}_(Pok%C3%A9mon)`;
-        
     })    
 };
 
