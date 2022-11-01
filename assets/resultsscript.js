@@ -1,6 +1,3 @@
-import {
-    randomImage, getShouldUsePoke
-} from './script.js';
 var reveal = document.querySelector("#btn");
 var result = document.getElementById("result");
 

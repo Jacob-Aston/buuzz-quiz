@@ -18,8 +18,8 @@ function shuffleQuestions(questions) {
 //when answer is clicked the result property of answer object is passed in
 //clears question and displays next question
 function selectAnswer(result) {
-  console.log("I was selected")
-  console.log(result)
+  // console.log("I was selected")
+  // console.log(result)
   currentQuestion = currentQuestion + 1;
   answerButtons.innerHTML = '';
 
@@ -33,18 +33,18 @@ function selectAnswer(result) {
 
     if(result === 'pokemon') {
       SCORE_POKE = incrementScore(SCORE_POKE);
-      console.log(SCORE_POKE);
+      //console.log(SCORE_POKE);
     } else {
       SCORE_DISNEY = incrementScore(SCORE_DISNEY);
-      console.log(SCORE_DISNEY);
+      //console.log(SCORE_DISNEY);
     }
 }
 
  //displays question and builds answer buttons from questions array
 function displayQuestion(question) {
-  console.log(question)
+  //console.log(question)
   var progressTextEl = document.getElementById('progressText');  
-  console.log(document);
+  //console.log(document);
   progressTextEl.innerHTML = "Question " + currentQuestion + " /" + maxQuestions;  
   questionText.textContent = question.question;
 
@@ -73,11 +73,11 @@ function updateBar() {
     button.addEventListener('click', updateBar())
 
     list.appendChild(button);
-    console.log(answerButtons)
+    //console.log(answerButtons)
     answerButtons.appendChild(list);
-    console.log(answerButtons)
+    //console.log(answerButtons)
 
-    console.log("response");
+    //console.log("response");
   })
 }
 
@@ -330,7 +330,7 @@ let MAX_QUESTIONS = 10;
 const incrementScore = num => {
   num++
   return num
-  console.log(score, num)
+  //console.log(score, num)
   return score
 }
 
@@ -378,7 +378,7 @@ let disneyMap = {
   "5" : []
 }
 
-export const getShouldUsePoke = () => {
+const getShouldUsePoke = () => {
   return SCORE_POKE > SCORE_DISNEY;
 }
 
@@ -390,13 +390,12 @@ const getImageArray = () => {
   return imageArray;
 }
 
-export const randomImage = () => {
+const randomImage = () => {
   const imageArray = getImageArray();
   return imageArray[Math.floor(Math.random() * imageArray.length)];
 }
 
 startQuiz();
-console.log(/*getShouldUsePoke(),*/ randomImage());
 // export default{
 //   getShouldUsePoke,
 //   randomImage,
