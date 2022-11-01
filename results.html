@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quiz Results!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+   
   </head>
   <body>
     <section class="hero is-small is-link has-text-centered">
@@ -32,13 +34,9 @@
       </div>
     </div>
   
+    <h2 class="is-size-4"> Previous Results </h2>
     <div id="prevResults" class="box has-background-grey-lighter">
-      <h2 class="is-size-4"> Previous Results </h2>
-      <ul id="highScores"></ul>
-    </div>
-
-    <div class="box has-background-grey-lighter">
-        <a href="index.html"><button class="button is-fullwidth">Take Quiz Again</button></a>
+      <ul id="highScores" class="results-grid"></ul>
     </div>
   <script src="./assets/resultsscript.js"></script>
   </body>
