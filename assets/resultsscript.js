@@ -33,7 +33,6 @@ const getPokemon = () => {
         localStorage.setItem(`character`, JSON.stringify(existing));
 
         document.getElementById("info").href = `https://bulbapedia.bulbagarden.net/wiki/${data.name}_(Pok%C3%A9mon)`;
-        
     })    
 };
 
@@ -45,8 +44,7 @@ console.log("previous", previous);
 const populate = previous.map(n => `
 <li class="card is-size-3 has-text-centered py-4">` +  n + `</li>`);
 console.log("populate", populate);
-const html = populate.join(``) + `
-<li><a href="index.html"><div class="box is-fullwidth is-size-3 has-text-centered has-text-white has-background-link">Take Quiz Again</div></a></li>`;
+const html = populate.join(``) + `<li></li>`;
 console.log("html", html);
 document.getElementById("highScores").innerHTML = html;
 
